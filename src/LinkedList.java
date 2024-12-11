@@ -27,6 +27,26 @@ public class LinkedList<T> {
         }
         size++;
     }
+    public void insert(int position, T data) {
+        if (position < 0 || position > size) {
+            System.out.println("Invalid position");
+        }
+
+        Node<T> newNode = new Node<>(data);
+        
+        if (position == 0) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            Node<T> current = head;
+            for (int i = 0; i < position - 1; i++) {
+                current = current.next;
+            }
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+        size++;
+    }
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Node<T> current = head;
