@@ -10,13 +10,48 @@ public class LinkedList<T> {
     public int size() {
         return size;
     }
-    public void add(T data) {
+   /* public void add(T data) {
         Node<T> newNode = new Node<>(data);
         newNode.next = head;
         head = newNode;
         size++;
+    }*/
+    public void add(T data) {
+        Node<T> newNode = new Node<>(data);
+
+        if (head == null) {
+            head = newNode;
+            size++;
+            return;
+        }
+
+        if (compareGreaterThan(head.data, newNode.data)) {
+            newNode.next = head;
+            head = newNode;
+            size++;
+            return;
+        }
+        Node<T> current = head;
+        while (current.next != null && !compareGreaterThan(current.next.data, newNode.data)) {
+            current = current.next;
+        }
+        newNode.next = current.next;
+        current.next = newNode;
+        size++;
     }
-    public void append(T data) {
+    private boolean compareGreaterThan(T a, T b) {
+        
+        if (a instanceof Integer && b instanceof Integer) {
+            return (Integer)a > (Integer)b;
+        }
+        
+        if (a instanceof String && b instanceof String) {
+            return ((String)a).compareTo((String)b) > 0;
+        }
+        
+        return a.toString().compareTo(b.toString()) > 0;
+    }
+   /* public void append(T data) {
         Node<T> newNode = new Node<>(data);
         
         if (head == null) {
@@ -49,7 +84,7 @@ public class LinkedList<T> {
             current.next = newNode;
         }
         size++;
-    }
+    }*/
     public T pop() {
         if (head == null) {
             System.out.println("List is empty");
@@ -91,7 +126,7 @@ public class LinkedList<T> {
         }
         return false;
     }
-    public void insertAfter(T afterData, T data) {
+  /*  public void insertAfter(T afterData, T data) {
         Node<T> current = head;
         while (current != null) {
             if (current.data.equals(afterData)) {
@@ -104,7 +139,7 @@ public class LinkedList<T> {
             current = current.next;
         }
         System.out.println("No such node with "+afterData);
-    }
+    }*/
     public void delete(T data) {
         if (head == null) return;
         
