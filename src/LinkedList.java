@@ -56,6 +56,28 @@ public class LinkedList<T> {
         size--;
         return data;
     }
+    public T popLast() {
+        if (head == null) {
+           System.out.println("List is empty");
+        }
+        
+        if (head.next == null) {
+            T data = head.data;
+            head = null;
+            size--;
+            return data;
+        }
+        
+        Node<T> current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        
+        T data = current.next.data;
+        current.next = null;
+        size--;
+        return data;
+    }
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Node<T> current = head;
