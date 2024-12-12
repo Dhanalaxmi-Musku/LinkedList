@@ -47,6 +47,15 @@ public class LinkedList<T> {
         }
         size++;
     }
+    public T pop() {
+        if (head == null) {
+            System.out.println("List is empty");
+        }       
+        T data = head.data;
+        head = head.next;
+        size--;
+        return data;
+    }
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Node<T> current = head;
