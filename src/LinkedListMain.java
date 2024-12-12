@@ -12,8 +12,7 @@ class LinkedListMain {
         list.add(56);        
         list.insert(1, 30);
         System.out.println(list.toString());
-        list.popLast();
-        System.out.println(list.toString());
+        
           
         
 	}
