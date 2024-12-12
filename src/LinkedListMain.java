@@ -11,6 +11,7 @@ class LinkedListMain {
 		list.add(70);
         list.add(56);        
         list.insert(1, 30);
+        list.insertAfter(30, 40);
         System.out.println(list.toString());
         
           

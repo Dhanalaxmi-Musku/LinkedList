@@ -9,7 +9,8 @@ class Test {
         list.insert(1, 30);
 		assertTrue(list.search(30));
 		assertFalse(list.search(40));
-		
+        list.insertAfter(30, 40);        
+        assertEquals("56->30->40->70", list.toString());
 	}
 
 }

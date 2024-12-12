@@ -88,6 +88,20 @@ public class LinkedList<T> {
         }
         return false;
     }
+    public void insertAfter(T afterData, T data) {
+        Node<T> current = head;
+        while (current != null) {
+            if (current.data.equals(afterData)) {
+                Node<T> newNode = new Node<>(data);
+                newNode.next = current.next;
+                current.next = newNode;
+                size++;
+                return;
+            }
+            current = current.next;
+        }
+        System.out.println("No such node with "+afterData);
+    }
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Node<T> current = head;
