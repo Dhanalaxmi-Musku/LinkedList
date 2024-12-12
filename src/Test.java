@@ -11,6 +11,9 @@ class Test {
 		assertFalse(list.search(40));
         list.insertAfter(30, 40);        
         assertEquals("56->30->40->70", list.toString());
+        list.delete(40);
+        assertEquals("56->30->70", list.toString());
+        assertEquals(3,list.size());
 	}
 
 }

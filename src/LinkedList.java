@@ -7,6 +7,9 @@ public class LinkedList<T> {
         head = null;
         size = 0;
     }
+    public int size() {
+        return size;
+    }
     public void add(T data) {
         Node<T> newNode = new Node<>(data);
         newNode.next = head;
@@ -101,6 +104,28 @@ public class LinkedList<T> {
             current = current.next;
         }
         System.out.println("No such node with "+afterData);
+    }
+    public void delete(T data) {
+        if (head == null) return;
+        
+        if (head.data.equals(data)) {
+            head = head.next;
+            size--;
+            return;
+        }
+        
+        Node<T> current = head;
+        Node<T> prev = null;
+        
+        while (current != null && !current.data.equals(data)) {
+            prev = current;
+            current = current.next;
+        }
+        
+        if (current != null) {
+            prev.next = current.next;
+            size--;
+        }
     }
     public String toString() {
         StringBuilder sb = new StringBuilder();

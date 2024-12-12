@@ -13,7 +13,8 @@ class LinkedListMain {
         list.insert(1, 30);
         list.insertAfter(30, 40);
         System.out.println(list.toString());
-        
+        list.delete(40);
+        System.out.println(list.toString());
           
         
 	}
